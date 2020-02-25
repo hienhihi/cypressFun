@@ -1,0 +1,22 @@
+{
+  "name": "cypressfun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hienhihi/cypressFun.git"
+  },
+  "author": "HienPhuong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hienhihi/cypressFun/issues"
+  },
+  "homepage": "https://github.com/hienhihi/cypressFun#readme",
+  "devDependencies": {
+    "cypress": "^4.0.2"
+  }
+}
