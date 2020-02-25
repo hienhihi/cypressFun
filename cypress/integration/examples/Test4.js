@@ -2,7 +2,7 @@ describe('My 4th Test', function() {
   it('My 4th test', function() {
 
     //Check boxes
-    cy.visit("https://rahulshettyacademy.com/AutomationPractice/");;
+    cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
     cy.get('#alertbtn').click(); //test to see if alert can be clicked
     cy.get('[value="Confirm"]').click(); //test to see if confirm can be clicked
 
