@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 import HomePage from './pageObjects/HomePage'; //function created in pagesObject so we could reuse again
 import ProductPage from './pageObjects/ProductPage'; //function created in pagesObject so we could reuse again
 
@@ -12,7 +14,7 @@ describe('My Framework Test', function() {
     const homePage = new HomePage(); // initiate the function so we could use homePage.someFunction
     const productPage = new ProductPage(); //same with abopve line
 
-    cy.visit('https://rahulshettyacademy.com/angularpractice/');
+    cy.visit(Cypress.env('url')); // place the url in cypress.json for easy syntax
 
     //all of these function replace the commented out ones below
 
@@ -39,6 +41,29 @@ describe('My Framework Test', function() {
     this.data.productName.forEach((el) => { //go through fixture array to apply the already made function in command.js
       cy.selectProduct(el);
     })
+
+    this.data.productName.forEach(function(element) {
+      cy.selectProduct(element)
+    });
+
+    productPage.checkOutButton().click()
+    var sum = 0 // initiate a variable to compare to the displayed money
+
+    cy.get('tr td:nth-child(4) strong').each(($el, index, $list) => { //iterate through the list of prices
+      const amount = $el.text()
+      var res = amount.split(" ") 
+      res = res[1].trim() //get number readyh
+      sum = Number(sum) + Number(res)
+    }).then(function() {
+      cy.log(sum)
+    })
+    cy.get('h3 strong').then(function(element) { //get number for the displayed total
+      const amount = element.text()
+      var res = amount.split(" ")
+     var total = res[1].trim()
+     expect(Number(total)).to.equal(sum) //compare
+    })
+
     productPage.checkOutButton().click();
    
     cy.contains('Checkout').click()

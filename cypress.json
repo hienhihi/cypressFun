@@ -1,5 +1,8 @@
 {
   "defaultCommandTimeout": 8000,
   "pageLoadTimeout": 20000,
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "env": {
+    "url": "https://rahulshettyacademy.com/angularpractice/"
+  }
 }
